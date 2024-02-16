@@ -7,7 +7,7 @@ const api = require('./routes/index');
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use('/api', api);
+// app.use('/api', api);
 app.use(express.static('public'));
 
 app.get('/', (req, res) =>
@@ -18,5 +18,5 @@ app.get('/notes', (req, res) =>
 )
 
 app.listen(port, () =>
-  console.log(`App listening at http://localhost:${PORT}`)
+  console.log(`App listening at http://localhost:${port}`)
 );
