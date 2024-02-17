@@ -1,7 +1,7 @@
 const express = require('express');
 const fs = require('fs');
 const path = require('path');
-const port = 3001;
+const PORT = process.env.PORT||3001;
 const app = express();
 const api = require('./routes/index');
 const { v4: uuidv4 } = require('uuid');
@@ -39,4 +39,4 @@ app.post('/api/notes', (req, res) => {
 });
 
 // app listening at the port 3001
-app.listen();  // console.log(`App listening at http://localhost:${port}`)
+app.listen(PORT, () => console.log(`App listening at http://localhost:${PORT}`));
