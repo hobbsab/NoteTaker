@@ -1,10 +1,13 @@
+const util = require('util');
+const fs = require('fs');
+const readFileAsync = util.promisify(fs.readFile);
 const fb = require('express').Router();
 
 // GET Route for retrieving all the feedback
 fb.get('/', (req, res) => {
   console.info(`${req.method} request received for feedback`);
 
-  readFromFile('./db/db.json').then((data) => res.json(JSON.parse(data)));
+  readFileAsync('./db/db.json').then((data) => res.json(JSON.parse(data)));
 });
 
 // POST Route for submitting feedback
